@@ -1,0 +1,44 @@
+h1{
+	padding-top:20px;
+}
+
+body{
+	background-color:#FAFAFA;
+}
+
+header{
+	background-color:#FFFFFF;
+}
+
+.title_logo{
+	margin-left:-114px;
+}
+
+.lead{
+	margin-top:10px;
+	margin-bottom:0px;
+}
+
+.jumbotron{
+	position:relative;
+	padding:0px;
+}
+
+#error{
+	color:#B20000;
+	display:none;
+}
+
+#logo_preview{
+	height:442px;
+	padding-top:125px;
+	padding-left:0px;
+}
+
+
+
+
+
+	
+
+	
