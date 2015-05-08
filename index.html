@@ -1,20 +1,20 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="en">
-  <head>  
-    <title>Singularity U &ndash; Logo Generator</title>  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">    
-	<link href="css/style.css" rel="stylesheet" media="screen"> 	
-  </head>  
-  <body> 
+  <head>
+    <title>Singularity U &ndash; Logo Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="css/style.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
   	<header class="jumbotron subhead">
 		<div class="container">
 			<h1><img class="title_logo" src="imgs/main_logo.svg"/></h1>
-		</div> 
+		</div>
   	</header>
-	<div class="container">  
-		
-		<div class="row">			
+	<div class="container">
+
+		<div class="row">
 			<div class="span4" id="controls">
 				<p class="lead">Logo Generator</p>
 				<br/>
@@ -29,8 +29,8 @@
 					<p>Community name</p>
 					<input id='location_input' type='text' onkeyup="communityNameChanged()" value="Community name"/>
 					<div id='error' >
-					  Please enter a name. 
-					</div>					
+					  Please enter a name.
+					</div>
 				</div>
 
 				<div id= "event_type_div" style="display:none;">
@@ -40,11 +40,11 @@
 					  <option value="Summit">Summit</option>
 					</select>
 				</div>
-					
+
 				<hr/>
-				
+
 				<h4>Choose color and layout</h4>
-				
+
 				<p>Background color</p>
 				<select id='color_input' onchange="updateLayout()" >
 				  <option value="white" selected>White</option>
@@ -58,31 +58,22 @@
 				  <option id ="3_lines_option" value="3">Three lines</option>
 				</select>
 				<hr/>
-				<p><a class="btn" id="download" >Generate logo</a></p>				
+				<p><a class="btn" id="download" >Generate logo</a></p>
 			</div>
 
-			<div class="span8" id="logo_preview">			
+			<div class="span8" id="logo_preview">
 			</div>
 
 		</div>
-	</div>  
+	</div>
  <script src="js/d3.min.js"></script>
  <script src="js/script.js"></script>
- <script src="js/FileSaver.min.js"></script> 
+ <script src="js/FileSaver.min.js"></script>
  <script src="js/canvas-toBlob.js"></script>
- 
-  </body>  
-</html>  
 
-
-
-
-
-
-
-
-
-
-
-
-
+  <!-- <div class="">
+    test
+  </div>
+  -->
+  </body>
+</html>
