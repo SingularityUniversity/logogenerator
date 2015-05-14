@@ -17,7 +17,7 @@ var base_logo_width, base_logo_height;
 updateLayout();
 
 function updateLayout(filename){
-    //Depending on Logo Type: 
+    //Depending on Logo Type:
     //- show and hide Event Type controls
     //- add or remove an option for three-line layout.
     var threeLinesOption = document.getElementById('3_lines_option');
@@ -26,10 +26,10 @@ function updateLayout(filename){
         event_type = "None";
         document.getElementById('event_type_div').style.display = "none";
 
-        if(threeLinesOption){    
+        if(threeLinesOption){
             if(threeLinesOption.selected){
-                document.getElementById('1_line_option').selected = "selected";   
-            }        
+                document.getElementById('1_line_option').selected = "selected";
+            }
             threeLinesOption.parentNode.removeChild(threeLinesOption);
         }
     }
@@ -48,20 +48,20 @@ function updateLayout(filename){
     }
     if(event_type === "None") {includeEvent = false;}
     else {includeEvent = true;}
-    
+
     //Load base logo element (has dimensions, background color, 'Singularity U' text)
-    var filename = "imgs/logo_" + layout_input.value + "_" + color_input.value +".svg";    
-    
+    var filename = "imgs/logo_" + layout_input.value + "_" + color_input.value +".svg";
+
 
     d3.xml(filename, "image/svg+xml", function(xml) {
       if(base_logo_element) preview.removeChild(base_logo_element);
       base_logo_element = xml.documentElement;
       preview.appendChild(base_logo_element);
       base_logo_width = parseInt(d3.select("svg").attr("width").slice(0, -2));
-      base_logo_height = parseInt(d3.select("svg").attr("height").slice(0, -2));  
-      drawImages();   
+      base_logo_height = parseInt(d3.select("svg").attr("height").slice(0, -2));
+      drawImages();
     });
-    
+
 }
 
 function communityNameChanged(){
@@ -82,6 +82,9 @@ function drawImages() {
     if(color_input.value == "white"){
         back_color = "#FFF";
         font_color = "#000";
+    }else if (color_input.value == "transparent") {
+        back_color = "#FFF";
+        font_color = "#000";
     }
     else{
         back_color = "#000";
@@ -94,7 +97,7 @@ function drawImages() {
     //CREATE NEW ELEMENTS AND ATTACH TO SVG
     //this needs to be done before we can access their bounding boxes (which we need in order to calculate their position in the layout section)
     svg_element = document.getElementsByTagName("svg")[0];
-    
+
     location_name = location_input.value;
     location_element = document.createElementNS("http://www.w3.org/2000/svg","text");
     location_element.setAttributeNS(null,"font-size","43.09");
@@ -108,10 +111,10 @@ function drawImages() {
         event_element.setAttributeNS(null,"font-size","43.09");
         event_element.setAttributeNS(null,"font-family","cooper_hewittbook");
         event_element.setAttributeNS(null,"style","fill:#5EB5E2;");
-        event_element.appendChild(document.createTextNode(event_type)); 
+        event_element.appendChild(document.createTextNode(event_type));
         svg_element.appendChild(event_element);
     }
-    
+
     //LAYOUT: POSITION NEW ELEMENTS AND UPDATE LOGO WIDTH
     var x_location, y_location;
     var x_event, y_event;
@@ -124,7 +127,7 @@ function drawImages() {
             x_location = 345.997;
             y_location = 84.0508;
 
-            new_width = 356.622 + location_element.getBBox().width + 7 + 23.991; 
+            new_width = 356.622 + location_element.getBBox().width + 7 + 23.991;
 
             if(includeEvent){
                 x_event =  x_location + location_element.getBBox().width + 7;
@@ -154,17 +157,17 @@ function drawImages() {
             else{
                 x_location =  singularity_u_x;
                 y_location = second_line_y;
-                
+
                 if(location_element.getBBox().width < singularityUwidth){
                     // new_width = base_logo_width;
-                    new_width = after_singularity_u_x + right_padding;                    
-                } 
-                else{                    
-                    new_width = x_location +  location_element.getBBox().width + right_padding;  
+                    new_width = after_singularity_u_x + right_padding;
                 }
-            }  
+                else{
+                    new_width = x_location +  location_element.getBBox().width + right_padding;
+                }
+            }
             break;
-        case "3": 
+        case "3":
             var right_padding = 32.061;
             var singularity_u_x = 170.747;
             var singularityUwidth = 222.042;
@@ -178,22 +181,22 @@ function drawImages() {
 
             x_event = singularity_u_x;
             y_event = third_line_y;
-            
+
             if(location_element.getBBox().width < singularityUwidth)    {
                 new_width = base_logo_width;
-            } 
+            }
             else{
-                new_width = x_location +  location_element.getBBox().width +  right_padding;  
-            }  
+                new_width = x_location +  location_element.getBBox().width +  right_padding;
+            }
             break;
     }
 
-    location_element.setAttributeNS(null,"x", x_location);     
+    location_element.setAttributeNS(null,"x", x_location);
     location_element.setAttributeNS(null,"y", y_location);
     if(event_element){
-        event_element.setAttributeNS(null,"x", x_event);     
+        event_element.setAttributeNS(null,"x", x_event);
         event_element.setAttributeNS(null,"y", y_event);
-    }    
+    }
     svg_element.setAttributeNS(null, "width", new_width);
     svg_element.setAttributeNS(null, "viewBox", "0 0 "+ new_width + " " + base_logo_height);
 
@@ -202,32 +205,32 @@ function drawImages() {
     var backgroundRect = document.getElementById("background").getElementsByTagName("rect")[0];
     backgroundRect.setAttributeNS(null, "width", new_width);
     backgroundRect.setAttributeNS(null, "height", base_logo_height);
-    backgroundRect.setAttributeNS(null, "style", "fill:" + back_color+ ";");
-    
-    
+    backgroundRect.setAttributeNS(null, "style", "fill:" + back_color + ";");
+
+
 }
 
 function downloadSVG(link, filename) {
-    
+
     //resize SVG for creating JPG with height = 250
     var scaledSVG = svg_element.cloneNode(true);
     var bitmapHeight = 250;
     var bitmapWidth = bitmapHeight * svg_element.getBBox().width / svg_element.getBBox().height;
     scaledSVG.setAttributeNS(null,"width", bitmapWidth);
-    scaledSVG.setAttributeNS(null, "height", bitmapHeight);        
+    scaledSVG.setAttributeNS(null, "height", bitmapHeight);
     document.body.appendChild(scaledSVG);
 
-    var targetCanvas = document.createElement('canvas');   
+    var targetCanvas = document.createElement('canvas');
     targetCanvas.width = bitmapWidth;
     targetCanvas.height = bitmapHeight;
-    
-    targetCanvas.id = filename;    
+
+    targetCanvas.id = filename;
     document.body.appendChild(targetCanvas);
     var ctx = targetCanvas.getContext('2d');
 
     var img = new Image();
     var xml = (new XMLSerializer()).serializeToString(scaledSVG);
-    img.src = "data:image/svg+xml;base64," + btoa(xml);    
+    img.src = "data:image/svg+xml;base64," + btoa(xml);
     img.onload = function() {
         // after this, Canvas’ origin-clean is DIRTY
         ctx.drawImage(img, 0, 0);
@@ -256,4 +259,3 @@ document.getElementById('download').addEventListener('click', function() {
     }
 
 }, false);
-
