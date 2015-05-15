@@ -4,11 +4,13 @@ var event_input = document.getElementById('event_input');
 var color_input = document.getElementById('color_input');
 var layout_input = document.getElementById('layout_input');
 var logo_type_input = document.getElementById('logo_type_input');
+var logo_size_input = document.getElementById('size_input');
+
 
 var default_location_text = "Community name";
 var error_tip = "your community name";
 
-var location_name, event_type;
+var location_name, event_type, logo_size;
 var includeEvent;
 
 var svg_element, location_element, event_element, base_logo_element;
@@ -97,6 +99,8 @@ function drawImages() {
     //CREATE NEW ELEMENTS AND ATTACH TO SVG
     //this needs to be done before we can access their bounding boxes (which we need in order to calculate their position in the layout section)
     svg_element = document.getElementsByTagName("svg")[0];
+
+    logo_size = logo_size_input.value;
 
     location_name = location_input.value;
     location_element = document.createElementNS("http://www.w3.org/2000/svg","text");
@@ -210,11 +214,31 @@ function drawImages() {
 
 }
 
-function downloadSVG(link, filename) {
+function downloadSVG(link, filename, size) {
+    var bitmapHeight = 250; //default
+
+    switch(size){
+    case "sm":
+      bitmapHeight = 50;
+      break
+    case "md":
+      bitmapHeight = 250;
+      break
+    case "lg":
+      bitmapHeight = 500;
+      break
+    case "xl":
+      bitmapHeight = 1000;
+      break
+    case "xxl":
+      bitmapHeight = 2000;
+      break
+    }
+    console.log('size ' + size);
 
     //resize SVG for creating JPG with height = 250
     var scaledSVG = svg_element.cloneNode(true);
-    var bitmapHeight = 250;
+
     var bitmapWidth = bitmapHeight * svg_element.getBBox().width / svg_element.getBBox().height;
     scaledSVG.setAttributeNS(null,"width", bitmapWidth);
     scaledSVG.setAttributeNS(null, "height", bitmapHeight);
@@ -249,8 +273,8 @@ function downloadSVG(link, filename) {
 document.getElementById('download').addEventListener('click', function() {
     if(location_name != default_location_text && location_name !== "" && location_name !== error_tip){
         // var format = format_input.value;
-        var format = "png"
-        downloadSVG(this, 'Singularity_U_' + location_name + '_' + event_type + '_' + color_input.value + '_' + layout_input.value + '_lines.' + format);
+        var format = "png";
+        downloadSVG(this, 'Singularity_U_' + location_name + '_' + event_type + '_' + color_input.value + '_' + layout_input.value + '_lines_' + logo_size + '.' + format, logo_size);
     }
     else{
         document.getElementById('error').style.display = "block";
