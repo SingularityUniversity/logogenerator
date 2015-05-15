@@ -58,6 +58,17 @@
 				  <option id ="2_lines_option" value="2">Two lines</option>
 				  <option id ="3_lines_option" value="3">Three lines</option>
 				</select>
+
+        <h4>Choose an image size</h4>
+
+        <p>Size</p>
+				<select id='size_input' onchange="updateLayout()">
+				  <option id ="sm" value="sm" selected>Small (50px height)</option>
+				  <option id ="md" value="md" selected>Regular (250px height)</option>
+				  <option id ="lg" value="lg">Large (500px height)</option>
+          <option id ="xl" value="xl">Extra Large (1000px height)</option>
+          <option id ="xxl" value="xxl">Extra Extra Large (2000px height)</option>
+				</select>
 				<hr/>
 				<p><a class="btn" id="download" >Generate logo</a></p>
 			</div>
