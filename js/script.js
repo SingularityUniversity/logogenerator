@@ -2,6 +2,7 @@ var preview = document.getElementById('logo_preview');
 var location_input = document.getElementById('location_input');
 var event_input = document.getElementById('event_input');
 var color_input = document.getElementById('color_input');
+var textcolor_input = document.getElementById('textcolor_input');
 var layout_input = document.getElementById('layout_input');
 var logo_type_input = document.getElementById('logo_type_input');
 var logo_size_input = document.getElementById('size_input');
@@ -47,9 +48,22 @@ function updateLayout(filename){
             threeLinesOption.id = '3_lines_option';
             layout_input.add(threeLinesOption);
         }
+        //- add remove option to change color for GIC 
+        if(event_input.value === "Global Impact Competition"){
+        document.getElementById('textcolor_div').style.display = "inline";
+        }
+        if(event_input.value === "Salon"){
+        document.getElementById('textcolor_div').style.display = "none";
+        }
+        if(event_input.value === "Summit"){
+        document.getElementById('textcolor_div').style.display = "none";
+        }
     }
     if(event_type === "None") {includeEvent = false;}
     else {includeEvent = true;}
+
+
+
 
     //Load base logo element (has dimensions, background color, 'Singularity U' text)
     var filename = "imgs/logo_" + layout_input.value + "_" + color_input.value +".svg";
@@ -80,6 +94,7 @@ function drawImages() {
     //SET COLORS
     var font_color;
     var back_color;
+    var text_color
 
     if(color_input.value == "white"){
         back_color = "#FFF";
@@ -92,9 +107,18 @@ function drawImages() {
         back_color = "#000";
         font_color = "#FFF";
     }
-    if(!includeEvent){
-        font_color = "#5EB5E2;"
+
+    if(textcolor_input.value == "blue"){
+        text_color = "#5EB5E2";
     }
+    else if(textcolor_input.value == "orange") {
+            text_color = "#EE984C";
+        }
+    else if(textcolor_input.value == "red") {
+            text_color = "#B66F7D";
+        }
+    
+
 
     //CREATE NEW ELEMENTS AND ATTACH TO SVG
     //this needs to be done before we can access their bounding boxes (which we need in order to calculate their position in the layout section)
@@ -114,7 +138,7 @@ function drawImages() {
         event_element = document.createElementNS("http://www.w3.org/2000/svg","text");
         event_element.setAttributeNS(null,"font-size","43.09");
         event_element.setAttributeNS(null,"font-family","cooper_hewittbook");
-        event_element.setAttributeNS(null,"style","fill:#5EB5E2;");
+        event_element.setAttributeNS(null,"style","fill:"+text_color+";");
         event_element.appendChild(document.createTextNode(event_type));
         svg_element.appendChild(event_element);
     }
@@ -146,35 +170,34 @@ function drawImages() {
             var singularity_u_x = 141.8594;
             var after_singularity_u_x = 375.105;
 
+            var first_line_x = after_singularity_u_x + location_element.getBBox().width + right_padding;
+            var second_line_x = singularity_u_x + event_element.getBBox().width + right_padding;
+
             var first_line_y = 79.7744;
             var second_line_y = first_line_y + 47.098;
 
-            if(includeEvent){
-                x_location = after_singularity_u_x;
-                y_location = first_line_y;
+            x_location = after_singularity_u_x;
+            y_location = first_line_y;
 
-                x_event =  singularity_u_x;
-                y_event = second_line_y;
+            x_event =  singularity_u_x;
+            y_event = second_line_y;
 
-                new_width = after_singularity_u_x + location_element.getBBox().width + right_padding;
+            if(first_line_x > second_line_x){
+                new_width = first_line_x;
             }
             else{
-                x_location =  singularity_u_x;
-                y_location = second_line_y;
-
-                if(location_element.getBBox().width < singularityUwidth){
-                    // new_width = base_logo_width;
-                    new_width = after_singularity_u_x + right_padding;
-                }
-                else{
-                    new_width = x_location +  location_element.getBBox().width + right_padding;
-                }
+                new_width = second_line_x;
             }
+
             break;
         case "3":
             var right_padding = 32.061;
             var singularity_u_x = 170.747;
             var singularityUwidth = 222.042;
+
+            var first_line_x = singularityUwidth;
+            var second_line_x = singularityUwidth + location_element.getBBox().width + right_padding;
+            var third_line_x = singularity_u_x + event_element.getBBox().width + right_padding;
 
             var first_line_y = 73.355;
             var second_line_y = first_line_y + 47.792;
@@ -186,12 +209,12 @@ function drawImages() {
             x_event = singularity_u_x;
             y_event = third_line_y;
 
-            if(location_element.getBBox().width < singularityUwidth)    {
-                new_width = base_logo_width;
-            }
-            else{
-                new_width = x_location +  location_element.getBBox().width +  right_padding;
-            }
+                if(second_line_x > third_line_x){
+                    new_width = second_line_x
+                }
+                else{
+                    new_width = third_line_x
+                }
             break;
     }
 

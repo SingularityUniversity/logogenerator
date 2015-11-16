@@ -38,20 +38,32 @@
 					<select class="" id='event_input' onchange="updateLayout()">
 					  <option value="Salon" selected>Salon</option>
 					  <option value="Summit">Summit</option>
+					  <option value="Global Impact Competition">Global Impact Competition</option>
 					</select>
 				</div>
 
 				<hr/>
 
 				<h4>Choose color and layout</h4>
-
+				
+				<div id= "textcolor_div" style="display:none;">
+					<p>GIC text color</p>
+					<select id='textcolor_input' onchange="updateLayout()" >
+	          			<option value="blue" selected>Blue</option>
+						<option value="orange">Orange</option>
+	          			<option value="red">Red</option>
+					</select>
+					</p>
+				</div>
+				
 				<p>Background color</p>
 				<select id='color_input' onchange="updateLayout()" >
-          <option value="white" selected>White</option>
-				  <option value="black">Black</option>
-          <option value="transparent">Transparent</option>
+          			<option value="white" selected>White</option>
+				  	<option value="black">Black</option>
+          			<option value="transparent">Transparent</option>
 				</select>
 				</p>
+				
 				<p>Layout</p>
 				<select id='layout_input' onchange="updateLayout()">
 				  <option id ="1_line_option" value="1" selected>One line</option>
