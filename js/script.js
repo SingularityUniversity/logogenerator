@@ -94,7 +94,7 @@ function drawImages() {
     //SET COLORS
     var font_color;
     var back_color;
-    var text_color
+    var text_color;
 
     if(color_input.value == "white"){
         back_color = "#FFF";
@@ -106,6 +106,9 @@ function drawImages() {
     else{
         back_color = "#000";
         font_color = "#FFF";
+    }
+    if(!includeEvent){
+        font_color = "#5EB5E2;"
     }
 
     if(textcolor_input.value == "blue"){
@@ -170,32 +173,45 @@ function drawImages() {
             var singularity_u_x = 141.8594;
             var after_singularity_u_x = 375.105;
 
-            var first_line_x = after_singularity_u_x + location_element.getBBox().width + right_padding;
-            var second_line_x = singularity_u_x + event_element.getBBox().width + right_padding;
-
             var first_line_y = 79.7744;
             var second_line_y = first_line_y + 47.098;
 
-            x_location = after_singularity_u_x;
-            y_location = first_line_y;
+            if(includeEvent){
+                var first_line_x = after_singularity_u_x + location_element.getBBox().width + right_padding;
+                var second_line_x = singularity_u_x + event_element.getBBox().width + right_padding;
+                x_location = after_singularity_u_x;
+                y_location = first_line_y;
 
-            x_event =  singularity_u_x;
-            y_event = second_line_y;
+                x_event =  singularity_u_x;
+                y_event = second_line_y;
 
-            if(first_line_x > second_line_x){
-                new_width = first_line_x;
+                if(first_line_x > second_line_x){
+                    new_width = first_line_x;
+                }
+                else{
+                    new_width = singularity_u_x + event_element.getBBox().width + right_padding;
+                }
+
             }
             else{
-                new_width = second_line_x;
-            }
-
+                x_location =  singularity_u_x;
+                y_location = second_line_y;
+                
+                if(location_element.getBBox().width < singularityUwidth){
+                    // new_width = base_logo_width;
+                    new_width = after_singularity_u_x + right_padding;                    
+                } 
+                else{                    
+                    new_width = x_location +  location_element.getBBox().width + right_padding;  
+                }
+            }  
             break;
         case "3":
             var right_padding = 32.061;
             var singularity_u_x = 170.747;
             var singularityUwidth = 222.042;
 
-            var first_line_x = singularityUwidth;
+            var first_line_x = singularityUwidth + singularity_u_x + right_padding;
             var second_line_x = singularityUwidth + location_element.getBBox().width + right_padding;
             var third_line_x = singularity_u_x + event_element.getBBox().width + right_padding;
 
@@ -203,18 +219,16 @@ function drawImages() {
             var second_line_y = first_line_y + 47.792;
             var third_line_y = first_line_y + 94.411;
 
+            var result = Math.max(first_line_x, second_line_x, third_line_x)
+
             x_location = singularity_u_x;
             y_location = second_line_y;
 
             x_event = singularity_u_x;
             y_event = third_line_y;
 
-                if(second_line_x > third_line_x){
-                    new_width = second_line_x
-                }
-                else{
-                    new_width = third_line_x
-                }
+            new_width = result
+
             break;
     }
 
