@@ -99,12 +99,9 @@ function drawImages() {
     if(color_input.value == "white"){
         back_color = "#FFF";
         font_color = "#000";
-    }else if (color_input.value == "transparent_black") {
+    }else if (color_input.value == "transparent") {
         back_color = "#FFF";
         font_color = "#000";
-    }else if (color_input.value == "transparent_white") {
-        back_color = "#FFF";
-        font_color = "#FFF";
     }
     else{
         back_color = "#000";
