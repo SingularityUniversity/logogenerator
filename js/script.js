@@ -48,7 +48,7 @@ function updateLayout(filename){
             threeLinesOption.id = '3_lines_option';
             layout_input.add(threeLinesOption);
         }
-        //- add remove option to change color for GIC 
+        //- add remove option to change color for GIC
         if(event_input.value === "Global Impact Competition"){
         document.getElementById('textcolor_div').style.display = "inline";
         }
@@ -120,7 +120,7 @@ function drawImages() {
     else if(textcolor_input.value == "red") {
             text_color = "#B66F7D";
         }
-    
+
 
 
     //CREATE NEW ELEMENTS AND ATTACH TO SVG
@@ -196,15 +196,15 @@ function drawImages() {
             else{
                 x_location =  singularity_u_x;
                 y_location = second_line_y;
-                
+
                 if(location_element.getBBox().width < singularityUwidth){
                     // new_width = base_logo_width;
-                    new_width = after_singularity_u_x + right_padding;                    
-                } 
-                else{                    
-                    new_width = x_location +  location_element.getBBox().width + right_padding;  
+                    new_width = after_singularity_u_x + right_padding;
                 }
-            }  
+                else{
+                    new_width = x_location +  location_element.getBBox().width + right_padding;
+                }
+            }
             break;
         case "3":
             var right_padding = 32.061;
@@ -310,8 +310,26 @@ function downloadSVG(link, filename, size) {
 document.getElementById('download').addEventListener('click', function() {
     if(location_name != default_location_text && location_name !== "" && location_name !== error_tip){
         // var format = format_input.value;
-        var format = "png";
-        downloadSVG(this, 'Singularity_U_' + location_name + '_' + event_type + '_' + color_input.value + '_' + layout_input.value + '_lines_' + logo_size + '.' + format, logo_size);
+
+        if (logo_size == 'vc') {
+            var source = document.getElementById("logo_preview").innerHTML;
+            if(!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)){
+                source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+            }
+            if(!source.match(/^<svg[^>]+"http\:\/\/www\.w3\.org\/1999\/xlink"/)){
+                source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
+            }
+            source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+            var url = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
+            var a = document.getElementById("vector_download");
+            document.body.appendChild(a);
+            a.setAttribute("download", 'Singularity_U_' + location_name + '_' + event_type + '_' + color_input.value + '_' + layout_input.value + '_lines_' + logo_size + '.svg');
+            a.setAttribute("href", url);
+            a.click();
+        } else {
+            var format = "png";
+            downloadSVG(this, 'Singularity_U_' + location_name + '_' + event_type + '_' + color_input.value + '_' + layout_input.value + '_lines_' + logo_size + '.' + format, logo_size);
+        }
     }
     else{
         document.getElementById('error').style.display = "block";

@@ -46,7 +46,7 @@
 				<hr/>
 
 				<h4>Choose color and layout</h4>
-				
+
 				<div id= "textcolor_div" style="display:none;">
 					<p>GIC text color</p>
 					<select id='textcolor_input' onchange="updateLayout()" >
@@ -54,17 +54,15 @@
 						<option value="orange">Orange</option>
 	          			<option value="red">Red</option>
 					</select>
-					</p>
 				</div>
-				
+
 				<p>Background color</p>
 				<select id='color_input' onchange="updateLayout()" >
-          				<option value="white" selected>White</option>
+          			<option value="white" selected>White</option>
 				  	<option value="black">Black</option>
-          				<option value="transparent">Transparent</option>
-          			</select>
-				</p>
-				
+          			<option value="transparent">Transparent</option>
+          		</select>
+
 				<p>Layout</p>
 				<select id='layout_input' onchange="updateLayout()">
 				  <option id ="1_line_option" value="1" selected>One line</option>
@@ -76,11 +74,12 @@
 
         <p>Size</p>
 				<select id='size_input' onchange="updateLayout()">
-				  <option id ="sm" value="sm" selected>Small (50px height)</option>
-				  <option id ="md" value="md" selected>Regular (250px height)</option>
-				  <option id ="lg" value="lg">Large (500px height)</option>
-          <option id ="xl" value="xl">Extra Large (1000px height)</option>
-          <option id ="xxl" value="xxl">Extra Extra Large (2000px height)</option>
+				  <option id ="vc" value="vc" selected>Vector SVG</option>
+				  <option id ="sm" value="sm" selected>Small (50px height) PNG</option>
+				  <option id ="md" value="md" selected>Regular (250px height) PNG</option>
+				  <option id ="lg" value="lg">Large (500px height) PNG</option>
+          <option id ="xl" value="xl">Extra Large (1000px height) PNG</option>
+          <option id ="xxl" value="xxl">Extra Extra Large (2000px height) PNG</option>
 				</select>
 				<hr/>
 				<p><a class="btn" id="download" >Generate logo</a></p>
@@ -88,6 +87,8 @@
 
 			<div class="span8" id="logo_preview">
 			</div>
+
+			<a id="vector_download" style="hidden"></a>
 
 		</div>
 	</div>
