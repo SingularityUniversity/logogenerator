@@ -2,8 +2,7 @@
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="595.472px" height="172.381px" viewBox="0 0 595.472 172.381" enable-background="new 0 0 595.472 172.381"
-	 xml:space="preserve">
+	 width="390.472px" height="172.381px" viewBox="0 0 390.472 172.381" enable-background="new 0 0 595.472 172.381" xml:space="preserve">
 
 <style type="text/css" >
 <![CDATA[
@@ -28,7 +27,7 @@
 
 .st0{enable-background:new;}
 .st1{fill:#FFFFFF;}
-.st2{font-family:'NexaBold';}
+.st2{font-family:'nexa_boldregular';}
 .st3{font-size:40.4533px;}
 .st4{fill:#EC6629;}
 .st5{fill:#2A65AF;}
@@ -202,17 +201,6 @@
 				C87,90.2,86.1,90,85.6,89.3"/>
 		</g>
 	</g>
-	<text transform="matrix(1 0 0 1 141.8594 79.7744)" font-family="'nexa_boldregular'" font-size="43.09px">S</text>
-	<text transform="matrix(1 0 0 1 169.3257 79.7744)" font-family="'nexa_boldregular'" font-size="43.09px">i</text>
-	<text transform="matrix(1 0 0 1 177.5469 79.7744)" font-family="'nexa_boldregular'" font-size="43.09px">n</text>
-	<text transform="matrix(1 0 0 1 202.1689 79.7744)" font-family="'nexa_boldregular'" font-size="43.09px">g</text>
-	<text transform="matrix(1 0 0 1 225.0068 79.7744)" font-family="'nexa_boldregular'" font-size="43.09px">u</text>
-	<text transform="matrix(1 0 0 1 248.7671 79.7744)" font-family="'nexa_boldregular'" font-size="43.09px">l</text>
-	<text transform="matrix(1 0 0 1 258.127 79.7744)" font-family="'nexa_boldregular'" font-size="43.09px">a</text>
-	<text transform="matrix(1 0 0 1 283.0254 79.7744)" font-family="'nexa_boldregular'" font-size="43.09px">r</text>
-	<text transform="matrix(1 0 0 1 301.3833 79.7744)" font-family="'nexa_boldregular'" font-size="43.09px">i</text>
-	<text transform="matrix(1 0 0 1 310.6045 79.7744)" font-family="'nexa_boldregular'" font-size="43.09px">t</text>
-	<text transform="matrix(1 0 0 1 327.4526 79.7744)" font-family="'nexa_boldregular'" font-size="43.09px">y</text>
-	<text transform="matrix(1 0 0 1 351.0229 79.7744)" font-family="'nexa_boldregular'" font-size="43.09px">U</text>
+	<text transform="matrix(1 0 0 1 141.8594 79.7744)" font-family="'nexa_boldregular'" font-size="43.09px">SingularityU</text>
 </g>
 </svg>

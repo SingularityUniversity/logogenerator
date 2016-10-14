@@ -153,26 +153,28 @@ function drawImages() {
 
     switch(layout_input.value){
         case "1":
-            x_location = 345.997;
+            var right_padding = 32.2;
+            var after_event_name = 10;
+            x_location = 357.997;
             y_location = 84.0508;
 
-            new_width = 356.622 + location_element.getBBox().width + 10 + 23.991;
+            new_width = 356.622 + location_element.getBBox().width + right_padding;
 
             if(includeEvent){
-                x_event =  x_location + location_element.getBBox().width + 10;
+                x_event =  x_location + location_element.getBBox().width + after_event_name;
                 y_event = y_location;
-                new_width += event_element.getBBox().width;
+                new_width += event_element.getBBox().width + after_event_name;
             }
 
             break;
         case "2":
-            var right_padding = 31.972;
+            var right_padding = 35.1;
 
             var singularity_u_x = 141.8594;
-            var after_singularity_u_x = 395.105;
+            var after_singularity_u_x = 404.105;
 
             var first_line_y = 79.7744;
-            var second_line_y = first_line_y + 47.098;
+            var second_line_y = first_line_y + 54.792;
 
             if(includeEvent){
                 var first_line_x = after_singularity_u_x + location_element.getBBox().width + right_padding;
@@ -205,12 +207,12 @@ function drawImages() {
             }
             break;
         case "3":
-            var right_padding = 32.061;
+            var right_padding = 34.4;
             var singularity_u_x = 170.747;
-            var singularityUwidth = 222.042;
+            var singularityUwidth = 254.042;
 
             var first_line_x = singularityUwidth + singularity_u_x + right_padding;
-            var second_line_x = singularityUwidth + location_element.getBBox().width + right_padding;
+            var second_line_x = singularity_u_x + location_element.getBBox().width + right_padding;
             var third_line_x = singularity_u_x + event_element.getBBox().width + right_padding;
 
             var first_line_y = 73.355;
