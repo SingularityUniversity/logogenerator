@@ -108,7 +108,7 @@ function drawImages() {
         font_color = "#EC6629";
     }
     if(!includeEvent){
-        font_color = "#2A65AF;"
+        font_color = "#EC6629;"
     }
 
     if(textcolor_input.value == "blue"){
@@ -173,7 +173,7 @@ function drawImages() {
             var singularity_u_x = 141.8594;
             var after_singularity_u_x = 404.105;
 
-            var first_line_y = 79.7744;
+            var first_line_y = 73.355;
             var second_line_y = first_line_y + 54.792;
 
             if(includeEvent){
