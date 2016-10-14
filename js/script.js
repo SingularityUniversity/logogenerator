@@ -173,8 +173,8 @@ function drawImages() {
             var singularity_u_x = 141.8594;
             var after_singularity_u_x = 404.105;
 
-            var first_line_y = 73.355;
-            var second_line_y = first_line_y + 54.792;
+            var first_line_y = 79.7744;
+            var second_line_y = first_line_y + 48.3726;
 
             if(includeEvent){
                 var first_line_x = after_singularity_u_x + location_element.getBBox().width + right_padding;
