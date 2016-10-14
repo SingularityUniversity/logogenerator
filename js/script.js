@@ -98,30 +98,28 @@ function drawImages() {
 
     if(color_input.value == "white"){
         back_color = "#FFF";
-        font_color = "#000";
+        font_color = "#EC6629";
     }else if (color_input.value == "transparent") {
         back_color = "#FFF";
-        font_color = "#000";
+        font_color = "#EC6629";
     }
     else{
         back_color = "#000";
-        font_color = "#FFF";
+        font_color = "#EC6629";
     }
     if(!includeEvent){
-        font_color = "#5EB5E2;"
+        font_color = "#2A65AF;"
     }
 
     if(textcolor_input.value == "blue"){
-        text_color = "#5EB5E2";
+        text_color = "#2A65AF";
     }
     else if(textcolor_input.value == "orange") {
-            text_color = "#EE984C";
-        }
+        text_color = "#EE984C";
+    }
     else if(textcolor_input.value == "red") {
-            text_color = "#B66F7D";
-        }
-
-
+        text_color = "#B66F7D";
+    }
 
     //CREATE NEW ELEMENTS AND ATTACH TO SVG
     //this needs to be done before we can access their bounding boxes (which we need in order to calculate their position in the layout section)
@@ -132,7 +130,7 @@ function drawImages() {
     location_name = location_input.value;
     location_element = document.createElementNS("http://www.w3.org/2000/svg","text");
     location_element.setAttributeNS(null,"font-size","43.09");
-    location_element.setAttributeNS(null,"font-family","cooper_hewittbook");
+    location_element.setAttributeNS(null,"font-family","nexa_boldregular");
     location_element.setAttributeNS(null,"style","fill:"+font_color+";");
     location_element.appendChild(document.createTextNode(location_name));
     svg_element.appendChild(location_element);
@@ -140,7 +138,7 @@ function drawImages() {
     if(includeEvent){
         event_element = document.createElementNS("http://www.w3.org/2000/svg","text");
         event_element.setAttributeNS(null,"font-size","43.09");
-        event_element.setAttributeNS(null,"font-family","cooper_hewittbook");
+        event_element.setAttributeNS(null,"font-family","nexa_boldregular");
         event_element.setAttributeNS(null,"style","fill:"+text_color+";");
         event_element.appendChild(document.createTextNode(event_type));
         svg_element.appendChild(event_element);
@@ -158,10 +156,10 @@ function drawImages() {
             x_location = 345.997;
             y_location = 84.0508;
 
-            new_width = 356.622 + location_element.getBBox().width + 7 + 23.991;
+            new_width = 356.622 + location_element.getBBox().width + 10 + 23.991;
 
             if(includeEvent){
-                x_event =  x_location + location_element.getBBox().width + 7;
+                x_event =  x_location + location_element.getBBox().width + 10;
                 y_event = y_location;
                 new_width += event_element.getBBox().width;
             }
@@ -171,7 +169,7 @@ function drawImages() {
             var right_padding = 31.972;
 
             var singularity_u_x = 141.8594;
-            var after_singularity_u_x = 375.105;
+            var after_singularity_u_x = 395.105;
 
             var first_line_y = 79.7744;
             var second_line_y = first_line_y + 47.098;
@@ -216,8 +214,8 @@ function drawImages() {
             var third_line_x = singularity_u_x + event_element.getBBox().width + right_padding;
 
             var first_line_y = 73.355;
-            var second_line_y = first_line_y + 47.792;
-            var third_line_y = first_line_y + 94.411;
+            var second_line_y = first_line_y + 54.792;
+            var third_line_y = first_line_y + 104.411;
 
             var result = Math.max(first_line_x, second_line_x, third_line_x)
 
