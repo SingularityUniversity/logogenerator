@@ -130,7 +130,7 @@ function drawImages() {
     location_name = location_input.value;
     location_element = document.createElementNS("http://www.w3.org/2000/svg","text");
     location_element.setAttributeNS(null,"font-size","43.09");
-    location_element.setAttributeNS(null,"font-family","nexa_boldregular");
+    location_element.setAttributeNS(null,"font-family","Nexa Bold");
     location_element.setAttributeNS(null,"style","fill:"+font_color+";");
     location_element.appendChild(document.createTextNode(location_name));
     svg_element.appendChild(location_element);
@@ -138,7 +138,7 @@ function drawImages() {
     if(includeEvent){
         event_element = document.createElementNS("http://www.w3.org/2000/svg","text");
         event_element.setAttributeNS(null,"font-size","43.09");
-        event_element.setAttributeNS(null,"font-family","nexa_boldregular");
+        event_element.setAttributeNS(null,"font-family","Nexa Bold");
         event_element.setAttributeNS(null,"style","fill:"+text_color+";");
         event_element.appendChild(document.createTextNode(event_type));
         svg_element.appendChild(event_element);
