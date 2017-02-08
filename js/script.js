@@ -322,9 +322,13 @@ document.getElementById('download').addEventListener('click', function() {
             source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
             var url = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
             var a = document.getElementById("vector_download");
-            document.body.appendChild(a);
             a.setAttribute("download", 'Singularity_U_' + location_name + '_' + event_type + '_' + color_input.value + '_' + layout_input.value + '_lines_' + logo_size + '.svg');
             a.setAttribute("href", url);
+            a.click();
+
+            var a = document.getElementById("font_download");
+            a.setAttribute("download", 'Nexa-Bold.otf');
+            a.setAttribute("href", 'imgs/Nexa-Bold.otf');
             a.click();
         } else {
             var format = "png";
