@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link href="css/style.css" rel="stylesheet" media="screen">
+
+	<script src="https://use.typekit.net/ern5pqi.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
   </head>
   <body>
   	<header class="jumbotron subhead">
@@ -75,13 +78,14 @@
 
         <p>Size</p>
 				<select id='size_input' onchange="updateLayout()">
-				  <option id ="vc" value="vc" selected>Vector SVG</option>
+				  <option id ="vc" value="vc" selected>Vector SVG + Font</option>
 				  <option id ="sm" value="sm" selected>Small (50px height) PNG</option>
 				  <option id ="md" value="md" selected>Regular (250px height) PNG</option>
 				  <option id ="lg" value="lg">Large (500px height) PNG</option>
           <option id ="xl" value="xl">Extra Large (1000px height) PNG</option>
           <option id ="xxl" value="xxl">Extra Extra Large (2000px height) PNG</option>
 				</select>
+				<div><small id="size_description"></small></div>
 				<hr/>
 				<p><a class="btn" id="download" >Generate logo</a></p>
 			</div>

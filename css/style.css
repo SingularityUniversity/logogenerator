@@ -1,8 +1,10 @@
-h1{
+h1,h2,h3,h4,h5{
+	font-family: "proxima-nova";
 	padding-top:20px;
 }
 
 body{
+	font-family: "proxima-nova";
 	background-color:#FAFAFA;
 }
 
@@ -35,10 +37,6 @@ header{
 	padding-left:0px;
 }
 
-
-
-
-
-	
-
-	
+#size_description {
+	color:#B20000;
+}

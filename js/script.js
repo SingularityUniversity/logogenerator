@@ -342,3 +342,11 @@ document.getElementById('download').addEventListener('click', function() {
     }
 
 }, false);
+
+document.getElementById('size_input').addEventListener('change', function() {
+    if (this.value == 'vc') {
+        document.getElementById("size_description").innerHTML = 'Please install the Nexa Bold font before editing the Vector SVG.';
+    } else {
+        document.getElementById("size_description").innerHTML = '';
+    }
+}, false);
