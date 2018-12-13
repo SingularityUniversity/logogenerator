@@ -52,9 +52,6 @@ function updateLayout(filename){
         if(event_input.value === "Global Impact Competition"){
         document.getElementById('textcolor_div').style.display = "inline";
         }
-        if(event_input.value === "Salon"){
-        document.getElementById('textcolor_div').style.display = "none";
-        }
         if(event_input.value === "Summit"){
         document.getElementById('textcolor_div').style.display = "none";
         }
