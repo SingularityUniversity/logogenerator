@@ -96,11 +96,10 @@ function drawImages() {
     if(color_input.value == "white"){
         back_color = "#FFF";
         font_color = "#EC6629";
-    }else if (color_input.value == "transparent") {
+    } else if (color_input.value == "transparent") {
         back_color = "#FFF";
         font_color = "#EC6629";
-    }
-    else{
+    } else{
         back_color = "#000";
         font_color = "#EC6629";
     }
@@ -110,11 +109,9 @@ function drawImages() {
 
     if(textcolor_input.value == "blue"){
         text_color = "#2A65AF";
-    }
-    else if(textcolor_input.value == "orange") {
+    } else if(textcolor_input.value == "orange") {
         text_color = "#EE984C";
-    }
-    else if(textcolor_input.value == "red") {
+    } else if(textcolor_input.value == "red") {
         text_color = "#B66F7D";
     }
 
@@ -124,7 +121,11 @@ function drawImages() {
 
     logo_size = logo_size_input.value;
 
-    location_name = location_input.value;
+    if (!location_input.value) {
+        location_name = "Community name";
+    } else {
+        location_name = location_input.value;
+    }
     location_element = document.createElementNS("http://www.w3.org/2000/svg","text");
     location_element.setAttributeNS(null,"font-size","43.09");
     location_element.setAttributeNS(null,"font-family","Nexa Bold");
@@ -148,7 +149,7 @@ function drawImages() {
 
     var singularityUwidth = 222.042;
 
-    switch(layout_input.value){
+    switch(layout_input.value) {
         case "1":
             var right_padding = 32.2;
             var after_event_name = 10;
@@ -231,7 +232,7 @@ function drawImages() {
 
     location_element.setAttributeNS(null,"x", x_location);
     location_element.setAttributeNS(null,"y", y_location);
-    if(event_element){
+    if(event_element) {
         event_element.setAttributeNS(null,"x", x_event);
         event_element.setAttributeNS(null,"y", y_event);
     }
@@ -331,8 +332,7 @@ document.getElementById('download').addEventListener('click', function() {
             var format = "png";
             downloadSVG(this, 'Singularity_U_' + location_name + '_' + event_type + '_' + color_input.value + '_' + layout_input.value + '_lines_' + logo_size + '.' + format, logo_size);
         }
-    }
-    else{
+    } else {
         document.getElementById('error').style.display = "block";
         location_input.value = error_tip;
         location_input.select();
